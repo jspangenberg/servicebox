@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>servicebox</groupId>
+   <artifactId>servicebox-root</artifactId>
+   <packaging>pom</packaging>
+   <version>4.1-SNAPSHOT</version>
+   <name>servicebox-root</name>
+   <inceptionYear>2017</inceptionYear>
+   <description>Root for the ServiceBox project.</description>
+   <developers>
+      <developer>
+         <id>jspangenberg</id>
+         <name>John Spangenberg</name>
+         <email>jspangenberg@gmail.com</email>
+         <roles>
+              <role>Software Engineer</role>
+         </roles>
+      </developer>
+   </developers>
+
+   <properties>
+       <java.version>1.8</java.version>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+       <maven.compile.plugin.version>3.5.1</maven.compile.plugin.version>
+       <!-- Spring Boot dependency version -->
+       <spring.boot.version>1.5.2.RELEASE</spring.boot.version>
+       <!-- Spring Boot Admin dependency version -->
+       <spring.boot.admin.version>1.5.0</spring.boot.admin.version>
+       <!-- Spring Cloud dependency version -->
+       <spring.cloud.version>1.2.2.RELEASE</spring.cloud.version>
+       <!-- Swagger dependency version -->
+       <springfox.swagger.version>2.6.1</springfox.swagger.version>
+       <!-- JUnit dependency version -->
+       <junit.version>4.12</junit.version>
+       <!-- Hibernate dependency version -->
+       <hibernate.version>4.3.11.Final</hibernate.version>
+   </properties>
+
+   <!--
+    <modules>
+      <module></module>
+    </modules>
+   -->
+
+   <dependencyManagement>
+    <dependencies>
+
+        <!-- HIBERNATE DEPENDENCIES || NEED to be declared as first dependency includes-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-jta_1.1_spec</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-jta_1.1_spec</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+
+        <!-- SPRING BOOT DEPENDENCIES -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <version>${spring.boot.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+            <version>${spring.cloud.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+            <version>${spring.cloud.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox.swagger.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox.swagger.version}</version>
+        </dependency>
+
+        <!-- admin module dependencies -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-server</artifactId>
+            <version>${spring.boot.admin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-server-ui</artifactId>
+            <version>${spring.boot.admin.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>${spring.boot.admin.version}</version>
+        </dependency>
+
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Spring security dependency -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+       <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-test</artifactId>
+           <version>${spring.boot.version}</version>
+           <scope>test</scope>
+       </dependency>
+       <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <version>${junit.version}</version>
+           <scope>test</scope>
+       </dependency>
+   </dependencies>
+
+   <build>
+           <pluginManagement>
+               <plugins>
+                   <plugin>
+                       <groupId>org.springframework.boot</groupId>
+                       <artifactId>spring-boot-maven-plugin</artifactId>
+                       <version>${spring.boot.version}</version>
+                   </plugin>
+                   <plugin>
+                       <groupId>pl.project13.maven</groupId>
+                       <artifactId>git-commit-id-plugin</artifactId>
+                       <version>2.2.1</version>
+                   </plugin>
+                   <plugin>
+                       <groupId>org.apache.maven.plugins</groupId>
+                       <artifactId>maven-surefire-plugin</artifactId>
+                       <version>${surfire.version}</version>
+                   </plugin>
+                   <plugin>
+                       <groupId>org.apache.maven.plugins</groupId>
+                       <artifactId>maven-failsafe-plugin</artifactId>
+                       <version>${surfire.version}</version>
+                   </plugin>
+                   <plugin>
+                       <groupId>org.apache.maven.plugins</groupId>
+                       <artifactId>maven-site-plugin</artifactId>
+                       <version>3.5.1</version>
+                       <dependencies>
+                           <dependency><!-- add support for ssh/scp -->
+                               <groupId>org.apache.maven.wagon</groupId>
+                               <artifactId>wagon-ssh</artifactId>
+                               <version>1.0</version>
+                           </dependency>
+                       </dependencies>
+                   </plugin>
+               </plugins>
+           </pluginManagement>
+
+           <plugins>
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-compiler-plugin</artifactId>
+                   <configuration>
+                       <source>${java.version}</source>
+                       <target>${java.version}</target>
+                   </configuration>
+                   <version>${maven.compile.plugin.version}</version>
+               </plugin>
+
+               <plugin>
+                   <groupId>org.apache.maven.plugins</groupId>
+                   <artifactId>maven-surefire-plugin</artifactId>
+
+                   <configuration>
+                       <includes>
+                           <include>**/*Test.java</include>
+                       </includes>
+                       <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                   </configuration>
+               </plugin>
+
+      
+           </plugins>
+       </build>
+
+</project>
