@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ServiceboxBlogApplication {
 
-    public static void main(String args) {
+    public static void main(String[] args) {
         SpringApplication.run(ServiceboxBlogApplication.class, args);
     }
 
