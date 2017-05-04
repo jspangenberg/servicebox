@@ -6,7 +6,7 @@
     <groupId>servicebox</groupId>
     <artifactId>servicebox-root</artifactId>
     <packaging>pom</packaging>
-    <version>4.1-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>servicebox-root</name>
     <inceptionYear>2017</inceptionYear>
     <description>Root for the ServiceBox project.</description>
@@ -39,11 +39,11 @@
 
     </properties>
 
-    <!--
+
      <modules>
-       <module></module>
+       <module>servicebox-blog</module>
      </modules>
-    -->
+
 
     <dependencyManagement>
         <dependencies>
@@ -83,11 +83,6 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-thymeleaf</artifactId>
                 <version>${spring.boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.thymeleaf.extras</groupId>
-                <artifactId>thymeleaf-extras-springsecurity4</artifactId>
             </dependency>
 
             <dependency>
