@@ -11,10 +11,6 @@
 
     <artifactId>servicebox-blog-service</artifactId>
 
-    <properties>
-        <commons.httpclient.version>3.1</commons.httpclient.version>
-    </properties>
-
     <dependencies>
         <!-- SPRING BOOT DEPENDENCIES -->
         <dependency>
@@ -48,17 +44,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>${commons.httpclient.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
         </dependency>
 
     </dependencies>

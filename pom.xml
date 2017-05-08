@@ -39,6 +39,7 @@
 
         <slugify.version>2.1.9</slugify.version>
 
+
     </properties>
 
 
@@ -94,13 +95,6 @@
                 <version>${spring.boot.version}</version>
             </dependency>
 
-            <!-- Spring DATA REST dependencies -->
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-rest-hal-browser</artifactId>
-                <version>${spring.boot.version}</version>
-            </dependency>
-
             <!-- Spring Cloud dependencies -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -118,6 +112,11 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-rest-hal-browser</artifactId>
             </dependency>
 
             <!-- admin module dependencies -->
@@ -201,6 +200,15 @@
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
                     <version>${spring.boot.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                    <version>${maven.compile.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
