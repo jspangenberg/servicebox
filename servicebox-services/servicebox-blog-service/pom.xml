@@ -27,12 +27,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Slugify -->
-        <dependency>
-            <groupId>com.github.slugify</groupId>
-            <artifactId>slugify</artifactId>
-        </dependency>
-
     </dependencies>
 
     <build>
