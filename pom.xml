@@ -77,9 +77,16 @@
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-rest</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
+
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -87,6 +94,14 @@
                 <version>${spring.boot.version}</version>
             </dependency>
 
+            <!-- Spring DATA REST dependencies -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-rest-hal-browser</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- Spring Cloud dependencies -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-config-server</artifactId>
