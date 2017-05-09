@@ -1,7 +1,7 @@
-package servicebox.blog.repository;
+package servicebox.services.blog.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
-import servicebox.blog.domain.Author;
+import servicebox.services.blog.domain.Author;
 
 /**
  * @author John Spangenberg

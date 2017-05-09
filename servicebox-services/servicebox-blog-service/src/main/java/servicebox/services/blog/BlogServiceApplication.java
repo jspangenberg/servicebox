@@ -1,13 +1,13 @@
-package servicebox.blog;
+package servicebox.services.blog;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import servicebox.blog.domain.Author;
-import servicebox.blog.domain.Post;
-import servicebox.blog.repository.AuthorRepository;
-import servicebox.blog.repository.PostRepository;
+import servicebox.services.blog.domain.Author;
+import servicebox.services.blog.domain.Post;
+import servicebox.services.blog.repository.AuthorRepository;
+import servicebox.services.blog.repository.PostRepository;
 
 import java.util.Date;
 
@@ -16,10 +16,10 @@ import java.util.Date;
  */
 
 @SpringBootApplication
-public class ServiceboxBlogApplication {
+public class BlogServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceboxBlogApplication.class, args);
+        SpringApplication.run(BlogServiceApplication.class, args);
     }
 
     @Bean

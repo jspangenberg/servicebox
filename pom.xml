@@ -37,7 +37,10 @@
         <!-- Swagger dependency version -->
         <springfox.swagger.version>2.6.1</springfox.swagger.version>
 
+        <spring.data.hal.browser.version>2.6.3.RELEASE</spring.data.hal.browser.version>
+
         <slugify.version>2.1.9</slugify.version>
+
 
 
     </properties>
@@ -45,6 +48,7 @@
 
      <modules>
        <module>servicebox-services</module>
+         <module>servicebox-web-applications</module>
      </modules>
 
 
@@ -117,6 +121,7 @@
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-rest-hal-browser</artifactId>
+                <version>${spring.data.hal.browser.version}</version>
             </dependency>
 
             <!-- admin module dependencies -->

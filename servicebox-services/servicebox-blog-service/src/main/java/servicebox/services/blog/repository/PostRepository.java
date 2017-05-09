@@ -1,8 +1,8 @@
-package servicebox.blog.repository;
+package servicebox.services.blog.repository;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
-import servicebox.blog.domain.Post;
+import servicebox.services.blog.domain.Post;
 
 import java.util.List;
 

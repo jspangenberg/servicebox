@@ -1,4 +1,4 @@
-package servicebox.blog.domain;
+package servicebox.services.blog.domain;
 
 import org.springframework.data.annotation.CreatedDate;
 
