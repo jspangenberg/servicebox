@@ -1,0 +1,20 @@
+{
+  "name": "servicebox-blog",
+  "homepage": "https://github.com/jspangenberg/servicebox",
+  "authors": [
+    "JOHN SPANGENBERG <ja.spangenberg@gmail.com>"
+  ],
+  "description": "Blog Web Application",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
