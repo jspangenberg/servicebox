@@ -1,5 +1,6 @@
 package servicebox.web.blog.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import servicebox.web.blog.domain.Post;
@@ -10,9 +11,14 @@ import servicebox.web.blog.domain.Post;
 @Service
 public class PostService {
 
+    @Value("${blog.service.endpoint}")
+    private String blogServiceUrl;
+
     public Post getLatestPost() {
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject("http://localhost:8081/posts/search/findFirstByOrderByPostedOnDesc", Post.class);
+
+
+        return restTemplate.getForObject(blogServiceUrl + "/search/findFirstByOrderByPostedOnDesc", Post.class);
     }
 
 }

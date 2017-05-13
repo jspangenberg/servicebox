@@ -1,7 +1,6 @@
 package servicebox.web.blog.domain;
 
 import java.util.Date;
-
 /**
  * @author John Spangenberg
  */
@@ -55,6 +54,7 @@ public class Post {
     public void setPostedOn(Date postedOn) {
         this.postedOn = postedOn;
     }
+
 
     @Override
     public String toString() {
