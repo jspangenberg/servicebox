@@ -1,10 +1,12 @@
 package servicebox.web.blog.service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.Link;
+import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.hateoas.hal.Jackson2HalModule;
@@ -38,23 +40,27 @@ public class PostService {
        // return restTemplate.getForObject(blogServiceUrl + "/search/findFirstByOrderByPostedOnDesc", Post.class);
         String url = blogServiceUrl + "/search/findFirstByOrderByPostedOnDesc";
         ResponseEntity<Resource<Post>> blogPostResponseEntity
-                = restTemplate.exchange("url", HttpMethod.GET, null, new ParameterizedTypeReference<Resource<Post>>() {
+                = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<Resource<Post>>() {
         });
 
         Resource<Post> blogPostResource = blogPostResponseEntity.getBody();
 
         Link authorLink = blogPostResource.getLink("author");
+        String authorURI = authorLink.getHref();
 
-        return null;
+        Post blogPost = blogPostResource.getContent();
+        return blogPost;
     }
 
 
     private HttpMessageConverter getHalMessageConverter() {
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         objectMapper.registerModule(new Jackson2HalModule());
         MappingJackson2HttpMessageConverter halConverter = new TypeConstrainedMappingJackson2HttpMessageConverter(ResourceSupport.class);
 
-        halConverter.setSupportedMediaTypes(Arrays.asList(new MediaType("application/hal+json")));
+        //halConverter.setSupportedMediaTypes(Arrays.asList(new MediaType(MediaType.APPLICATION_JSON.getType())));
+        halConverter.setSupportedMediaTypes(Arrays.asList(MediaTypes.HAL_JSON));
         halConverter.setObjectMapper(objectMapper);
         return halConverter;
     }
