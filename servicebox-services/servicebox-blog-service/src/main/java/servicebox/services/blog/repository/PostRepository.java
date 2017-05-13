@@ -11,5 +11,13 @@ import java.util.List;
  */
 public interface PostRepository extends PagingAndSortingRepository<Post, Long> {
 
+    Post findFirstByOrderByPostedOnDesc();
+
+    List<Post> findAllByOrderByPostedOnDesc();
+
+    Post findBySlug(String slug);
+
+    List<Post> findAllByAuthorIdOrderByPostedOnDesc(Long id);
+
     List<Post> findByTitleContaining(@Param("title") String title);
 }
