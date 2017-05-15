@@ -12,6 +12,7 @@ public class Post {
     private String teaser;
     private String slug;
     private Date postedOn;
+    private Author author;
 
     public Post() {}
 
@@ -55,6 +56,13 @@ public class Post {
         this.postedOn = postedOn;
     }
 
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
     @Override
     public String toString() {
