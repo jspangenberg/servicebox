@@ -15,7 +15,7 @@ public interface PostRepository extends PagingAndSortingRepository<Post, Long> {
 
     List<Post> findAllByOrderByPostedOnDesc();
 
-    Post findBySlug(String slug);
+    Post findBySlug(@Param("slug") String slug);
 
     List<Post> findAllByAuthorIdOrderByPostedOnDesc(Long id);
 

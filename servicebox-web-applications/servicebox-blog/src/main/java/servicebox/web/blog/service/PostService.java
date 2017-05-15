@@ -5,6 +5,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
@@ -13,6 +14,10 @@ import org.springframework.web.client.RestTemplate;
 
 import servicebox.web.blog.domain.Author;
 import servicebox.web.blog.domain.Post;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -38,10 +43,40 @@ public class PostService {
 
         Resource<Post> blogPostResource = blogPostResponseEntity.getBody();
         Post blogPost = blogPostResource.getContent();
-        blogPost.setAuthor(getAuthor(restTemplate,blogPostResource.getLink("author")));
+        blogPost.setAuthor(getAuthor(restTemplate, blogPostResource.getLink("author")));
 
         return blogPost;
     }
+
+    public List<Post> list() {
+        String url = blogServiceUrl;
+
+        ResponseEntity<Resources<Post>> blogPostListResponseEntity
+                = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<Resources<Post>>() {
+        });
+
+        Resources<Post> blogPostListResource = blogPostListResponseEntity.getBody();
+        Collection<Post> blogPostList = blogPostListResource.getContent();
+
+        return new ArrayList<>(blogPostList);
+
+    }
+
+    public Post getBySLug(String slug) {
+        String url = blogServiceUrl + "/search/findBySlug?slug=" + slug;
+
+        ResponseEntity<Resource<Post>> blogPostResponseEntity
+                = restTemplate.exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<Resource<Post>>() {
+        });
+
+        Resource<Post> blogPostResource = blogPostResponseEntity.getBody();
+        Post blogPost = blogPostResource.getContent();
+        blogPost.setAuthor(getAuthor(restTemplate, blogPostResource.getLink("author")));
+
+        return blogPost;
+    }
+
+
 
     private Author getAuthor(RestTemplate restTemplate, Link authorLink) {
         Author author = null;

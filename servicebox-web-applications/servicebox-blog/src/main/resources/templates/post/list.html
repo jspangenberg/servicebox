@@ -19,9 +19,6 @@
 			</section>
 			<footer>
 				<a th:href="|@{/posts/view/}${post.slug}|">Read More</a>
-				<address>
-					Posted By <a th:href="|mailto:${post.author.email}|"> <span th:text="|${post.author.firstName} ${post.author.lastName}|">author</span></a>
-				</address>
 			</footer>
 			<hr/>
 		</article>
