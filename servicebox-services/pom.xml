@@ -15,6 +15,7 @@
 
     <modules>
         <module>servicebox-blog-service</module>
+        <module>servicebox-config-service</module>
     </modules>
 
 
